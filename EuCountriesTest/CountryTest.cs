@@ -69,7 +69,7 @@ namespace EuCountriesTest
                 Capital = "Riga"
             };
 
-            var result = CountryService.IsEuropeanCountry(_europeanCountriesTestList, country);
+            var result = CountryFilter.IsEuropeanCountry(_europeanCountriesTestList, country);
 
             Assert.True(result);
         }
@@ -89,7 +89,7 @@ namespace EuCountriesTest
                 Capital = "Ramallah"
             };
 
-            var result = CountryService.IsEuropeanCountry(_europeanCountriesTestList, country);
+            var result = CountryFilter.IsEuropeanCountry(_europeanCountriesTestList, country);
 
             Assert.False(result);
         }
@@ -134,7 +134,7 @@ namespace EuCountriesTest
                 },
             };
 
-            var result = CountryService.SortByPopulation(_europeanCountriesTestList).ToList();
+            var result = CountryFilter.SortByPopulation(_europeanCountriesTestList).ToList();
 
             Assert.Equal(JsonConvert.SerializeObject(expected), JsonConvert.SerializeObject(result));
         }
@@ -179,7 +179,7 @@ namespace EuCountriesTest
                 },
             };
 
-            var result = CountryService.SortByDensity(_europeanCountriesTestList).ToList();
+            var result = CountryFilter.SortByDensity(_europeanCountriesTestList).ToList();
 
             Assert.Equal(JsonConvert.SerializeObject(expected), JsonConvert.SerializeObject(result));
         }

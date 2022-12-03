@@ -21,7 +21,7 @@ namespace _28Stone_HomeAssignment.Controllers
         {
             var getAllCountries = await _country.GetCountries();
 
-            return Ok(CountryService.SortByPopulation(getAllCountries).Take(10));
+            return Ok(CountryFilter.SortByPopulation(getAllCountries).Take(10));
         }
 
         [Route("toptendensity")]
@@ -30,7 +30,7 @@ namespace _28Stone_HomeAssignment.Controllers
         {
             var getAllCountries = await _country.GetCountries();
 
-            return Ok(CountryService.SortByDensity(getAllCountries).Take(10));
+            return Ok(CountryFilter.SortByDensity(getAllCountries).Take(10));
         }
 
         [Route("{name}")]
@@ -41,12 +41,12 @@ namespace _28Stone_HomeAssignment.Controllers
             var getCountryByName = await _country.GetCountryByName(name);
             var country = getAllCountries.FirstOrDefault(c => c.Name?.ToLower() == name.ToLower());
 
-            if(country == null || !CountryService.IsEuropeanCountry(getAllCountries, country))
+            if(country == null || !CountryFilter.IsEuropeanCountry(getAllCountries, country))
             {
                 return BadRequest($"{name} is not in Europian Union");
             }
 
-            return Ok(CountryService.GetCountryByName(country));
+            return Ok(CountryFilter.GetCountryByName(country));
         }
     }
 }

@@ -1,7 +1,10 @@
-﻿namespace _28Stone_HomeAssignment.Models
+﻿using System.Text.Json.Serialization;
+
+namespace _28Stone_HomeAssignment.Models
 {
     public class CountryModel
     {
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? Name { get; set; }
         public double Area { get; set; }
         public int Population { get; set; }

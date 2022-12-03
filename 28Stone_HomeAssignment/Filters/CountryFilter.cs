@@ -2,7 +2,7 @@
 
 namespace _28Stone_HomeAssignment.Services
 {
-    public class CountryService
+    public class CountryFilter
     {
         private static IEnumerable<CountryModel> EuropianUnionCountries(List<CountryModel> country)
         {
